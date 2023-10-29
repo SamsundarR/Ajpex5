@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Car Registration Form</title>
+        <style>
+            body {
+                text-align: center;
+                background-image: url('car1.avif');
+                color: white;
+                background-size: cover;
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+            }
+            h1 {
+                color: #ffffff;
+                font-size: 32pt;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            }
+            h3 {
+                font-size: 20pt;
+                margin: 20px 0;
+            }
+            span {
+                color: #f11717;
+                font-weight: bold;
+            }
+            .container {
+                max-width: 600px;
+                margin: 0 auto;
+                padding: 20px;
+                background-color: rgba(0, 0, 0, 0.6);
+                border-radius: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Car Registration Form</h1>
+            <h3>Owner's Name: <span th:text="${car.ownerName}"></span></h3>
+            <h3>Make: <span th:text="${car.make}"></span></h3>
+            <h3>Model: <span th:text="${car.model}"></span></h3>
+            <h3>Year: <span th:text="${car.year}"></span></h3>
+            <h3>Color: <span th:text="${car.color}"></span></h3>
+            <h3>License Plate: <span th:text="${car.licensePlate}"></span></h3>
+            <h3>Location: <span th:text="${car.location}"></span></h3>
+            <h3>Feedback: <span th:text="${car.note}"></span></h3>
+        </div>
+    </body>
+</html>

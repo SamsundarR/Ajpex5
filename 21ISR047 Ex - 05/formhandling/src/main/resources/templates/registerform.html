@@ -1,0 +1,75 @@
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Car Registration Form</title>
+        <style>
+            h1 {
+                color: #000000;
+                font-size: 24pt;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            }
+            body {
+                text-align: center;
+                background-image:url('car1.webp');
+                color: white;
+                background-size: cover;
+                background-position: fixed;
+                font-family: Arial, sans-serif;
+            }
+            button[type="submit"] {
+                background-color: #000000;
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+            button[type="submit"]:hover {
+                background-color: #000000;
+            }
+            button[type="reset"] {
+                background-color: #d02020;
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+            button[type="reset"]:hover {
+                background-color: #FF3000;
+            }
+            input[type="text"], input[type="email"], input[type="password"], input[type="date"], select, textarea {
+                width: 60%;
+                padding: 10px;
+                margin: 5px 0;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+            }
+            input[type="radio"], input[type="checkbox"] {
+                margin: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <form th:action="@{/register}" method="post" th:object="${car}">
+            <h1>Car Registration Form</h1>
+            Owner's Name<br><input type="text" th:field="*{ownerName}"/><br><br>
+            Make<br><input type="text" th:field="*{make}"/><br><br>
+            Model<br><input type="text" th:field="*{model}"/><br><br>
+            Year<br><input type="text" th:field="*{year}"/><br><br>
+            Color<br><input type="text" th:field="*{color}"/><br><br>
+            License Plate<br><input type="text" th:field="*{licensePlate}"/><br><br>
+            Location:<br>
+            <select th:field="*{Location}">
+                <option th:each="l : ${loclist}" th:value="${l}" th:text="${l}"></option>
+            </select><br><br>
+            Feedback: <br>
+            <textarea th:field="*{note}" cols="30" rows="10"></textarea>
+            <br><br>
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+        </form>
+    </body>
+</html>
